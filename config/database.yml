@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: phase_4_project_react_rails_production
   username: phase_4_project_react_rails
   password: <%= ENV["PHASE_4_PROJECT_REACT_RAILS_DATABASE_PASSWORD"] %>
