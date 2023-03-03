@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     skip_before_action :authorized, only: :create
 
     def show
-        render json: @user, status: :ok
+        render json: @current_user, status: :ok
     end
 
     def create
