@@ -31,8 +31,11 @@ class ReviewsController < ApplicationController
 
     def delete 
         review = @current_user.reviews.find(id: params[:id])
-        review.delete 
-        head :no_content
+        if review 
+            review.destroy 
+            head :no_content
+        else
+            render json: { error: "Review not found" }, status: :not_found
     end
 
     private 
