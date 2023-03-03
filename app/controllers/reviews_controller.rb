@@ -21,11 +21,11 @@ class ReviewsController < ApplicationController
 
     def update
         review = @curent_user.reviews.find(id: params[:id])
-        review.update(review_params)
         if review.valid?
+            review.update(review_params)
             render json: review, status: :accepted
         else
-            render json: { errors: ["Unprocessable Entity"] }, status: :unprocessable_entity
+            render json: { error: "Review not found" }, status: :not_found
         end
     end
 
