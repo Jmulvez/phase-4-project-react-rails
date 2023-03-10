@@ -6,31 +6,29 @@ function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <Wrapper>
+    <div>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
-          <Divider />
           <p>
             Don't have an account?
-            <Button onClick={() => setShowLogin(false)}>
+            <button onClick={() => setShowLogin(false)}>
               Sign Up
-            </Button>
+            </button>
           </p>
         </>
       ) : (
         <>
           <SignUpForm onLogin={onLogin} />
-          <Divider />
           <p>
             Already have an account?
-            <Button onClick={() => setShowLogin(true)}>
+            <button onClick={() => setShowLogin(true)}>
               Log In
-            </Button>
+            </button>
           </p>
         </>
       )}
-    </Wrapper>
+    </div>
   );
 }
 

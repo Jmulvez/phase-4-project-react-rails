@@ -12,16 +12,12 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <Wrapper>
-      <Logo>
+    <div>
         <Link to="/"></Link>
-      </Logo>
-      <Nav>
-        <Button onClick={handleLogoutClick}>
+        <button onClick={handleLogoutClick}>
           Logout
-        </Button>
-      </Nav>
-    </Wrapper>
+        </button>
+    </div>
   );
 }
 
