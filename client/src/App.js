@@ -5,6 +5,7 @@ import Login from "./Login";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [games, setGames] = useState([]);
 
   useEffect(() => {
     fetch("/me").then((res) => {
@@ -15,6 +16,12 @@ function App() {
   }, []);
 
   if (!user) return <Login onLogin={setUser} />;
+
+  useEffect(() => {
+    fetch("/games")
+    .then((res) => res.json())
+    .then(data => setGames(data)) 
+  }, []);
 
   return (
     <div>
