@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route } from "react-router-dom";
 import NavBar from './NavBar';
 import Login from "./Login";
+import GamesList from './GamesList';
+import NewGame from './NewGame';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [games, setGames] = useState([]);
 
   useEffect(() => {
     fetch("/me").then((res) => {
@@ -17,19 +18,14 @@ function App() {
 
   if (!user) return <Login onLogin={setUser} />;
 
-  useEffect(() => {
-    fetch("/games")
-    .then((res) => res.json())
-    .then(data => setGames(data)) 
-  }, []);
-
   return (
     <div>
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
-          <Route>
-            
+          <Route path="/">
+            <NewGame />
+            <GamesList />
           </Route>
         </Switch>
       </main>
