@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
+import GameCard from './GameCard';
 
 function GamesList() {
     const [games, setGames] = useState([]);
   
     useEffect(() => {
       fetch("/games")
-        .then((r) => r.json())
+        .then((res) => res.json())
         .then(setGames);
     }, []);
 
     const getAllGames = games.map((game) => {
-        return <div key={game.id}>
-                    <h1>{game.title}</h1>
-                    <img src={game.image_url}></img>
-                    <p>{game.description}</p>
-                    <p>By: {game.developer}</p>
+        return <div>
+                    <GameCard 
+                        key={game.id}
+                        title={game.title}
+                        imageUrl={game.image_url}
+                        description={game.description}
+                        developer={game.developer}
+                        reviews={game.reviews}
+                    />
                </div>
     })
   
