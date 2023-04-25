@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import GameCard from './GameCard';
+import { Link } from "react-router-dom";
 
 function GamesList() {
     const [games, setGames] = useState([]);
@@ -11,15 +11,14 @@ function GamesList() {
     }, []);
 
     const getAllGames = games.map((game) => {
-        return <div>
-                    <GameCard 
-                        key={game.id}
-                        title={game.title}
-                        imageUrl={game.image_url}
-                        description={game.description}
-                        developer={game.developer}
-                        reviews={game.reviews}
-                    />
+        return <div key={game.id}>
+                    <h2>title={game.title}</h2>
+                    <img>imageUrl={game.image_url}</img>
+                    <p>description={game.description}</p>
+                    <p>developer={game.developer}</p>
+                    <Link to={`/games/${game.id}`}>
+                        <p>Reviews for {game.name}</p>
+                    </Link>
                </div>
     })
   
