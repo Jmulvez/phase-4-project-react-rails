@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
-function DirectorPage({  }) {
+function GameCard({  }) {
     const [selectedGame, setSelectedGame] = useState({
         title: "",
         reviews: []
@@ -24,7 +24,7 @@ function DirectorPage({  }) {
     return (
         <div>
             <h1>
-                {selectedGame.name} Reviews:
+                {selectedGame.title} Reviews:
             </h1>
             <ul>
                 {getReviews}
@@ -33,4 +33,4 @@ function DirectorPage({  }) {
     )
 }
 
-export default DirectorPage;
+export default GameCard;
