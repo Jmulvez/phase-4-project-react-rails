@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import NewReview from './NewReview';
 import { useParams } from "react-router-dom";
 
 function GameCard({  }) {
@@ -16,9 +17,11 @@ function GameCard({  }) {
     }, [games, params.id]);
 
     const getReviews = selectedGame.reviews.map((review) => {
-        return <div className="card" >
-                    
-                </div>
+        return <div className="card">
+                    <h3>{review.user_id}</h3>
+                    <p>{review.rating}</p>
+                    <p>{review.comment}</p>
+               </div>
     })
 
     return (
@@ -26,6 +29,7 @@ function GameCard({  }) {
             <h1>
                 {selectedGame.title} Reviews:
             </h1>
+            <NewReview />
             <ul>
                 {getReviews}
             </ul>
