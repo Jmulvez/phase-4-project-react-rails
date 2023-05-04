@@ -18,7 +18,7 @@ function GameCard({  }) {
 
     const getReviews = selectedGame.reviews.map((review) => {
         return <div className="card">
-                    <h3>{review.user_id}</h3>
+                    <h3>{review.user_id.username}</h3>
                     <p>{review.rating}</p>
                     <p>{review.comment}</p>
                </div>

@@ -6,7 +6,7 @@ function GamesList() {
   
     useEffect(() => {
       fetch("/games")
-        .then((res) => res.json())
+        .then((r) => r.json())
         .then(setGames);
     }, []);
 

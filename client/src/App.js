@@ -9,9 +9,9 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/me").then((res) => {
-      if (res.ok) {
-        res.json().then((user) => setUser(user));
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
       }
     });
   }, []);
@@ -19,7 +19,7 @@ function App() {
   if (!user) return <Login onLogin={setUser} />;
 
   return (
-    <div>
+    <>
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
@@ -29,7 +29,7 @@ function App() {
           </Route>
         </Switch>
       </main>
-    </div>
+    </>
   );
 }
 

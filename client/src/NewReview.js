@@ -7,7 +7,7 @@ function NewReview({ onAddComment }) {
         const reviewData = {
         };
 
-        fetch(`http://localhost:9292/reviews`, {
+        fetch(`/reviews`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
